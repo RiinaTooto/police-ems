@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Brutal Ambulance Job</title>
+</head>
+
+<body style="background: none;">
+
+    <div class="job_menu" id="job_menu">
+        <div class="circle_container">
+        </div>
+        <div class="circles_label"></div>
+    </div>
+
+    <div class="interactions" id="interactions">
+        <div class="label mx-auto d-block mt-3">
+            <h2>Interactions</h2>
+            <div class="background_effect"></div>
+        </div>
+        <div class="int_con mt-3">
+            <div class="row row-cols-1">
+                <div class="int_con_sec">
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="shop">
+        <button class="details_btn px-3 m-3 float-end" id="shop_back" onclick="CloseShop(), CreateArmoryMenu()">back <i class="fa-solid fa-chevron-right"></i></button>
+        <h2 class="mt-3">SHOP</h2>
+        <div class="shop_elements_container row row-cols-3">
+        </div>
+        <div class="checkout_container">
+            <hr>
+            <h3>TOTAL: 0<money>$</money></h3>
+            <button class="buy_btn" onclick="BuyInShop()">BUY</button>
+        </div>
+        <div class="slider_btn" id="shop_slider" onclick="ChangeSliderbtn(id)">
+            <div class="slider" id="slider_shop"></div>
+                <div class="row button_container">
+                    <div class="col"><i class="fa-solid fa-wallet"></i></div>
+                    <div class="col"><i class="fa-solid fa-building-columns"></i></div>
+                </div>
+        </div>
+    </div>
+
+    <div class="MDT" id="MDT">
+        <img class="logo_img" src="assets/LSPD.png"></img>
+        <div class="control_btn_container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <button class="control_btn mt-2 mx-auto d-block" id="home" onclick="SwitchPage(id)">
+                        <div class="background_effect"></div>
+                        <i class="fa-solid fa-house"></i>
+                    </button>
+                    <hr class="mt-3 mb-1" style="width: 80%; margin-left: 10%; border-top: solid 3px white; border-radius: 3px;">
+                </div>
+                <div class="col">
+                    <button class="control_btn m-2 mx-auto d-block" id="sos_alert" onclick="SwitchPage(id)">
+                        <div class="background_effect"></div>
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <button class="control_btn m-2 mx-auto d-block" id="invoices" onclick="SwitchPage(id)">
+                        <div class="background_effect"></div>
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="margin-left: 100px; padding: 10px;">
+            <div class="page_data_container">
+                <div class="background_blur_color"></div>
+                <div class="home_label mt-3">
+                    <div class="background_effect"></div>
+                    <div class="row">
+                        <div class="col ms-3 mt-1" id="job_name"></div>
+                        <div class="col-2 mt-1" id="home_date">date 213 23</div>
+                        <div class="col me-3 mt-1 text-end" id="street"></div>
+                    </div>
+                </div>
+            
+                <div class="row mt-3 mx-2">
+                    <div class="col">
+                        <div class="home_stat_con mx-auto d-block">
+                            <div class="background_effect"></div>
+                            <div class="label">Medicers</div>
+                            <div class="main" id="available_medicers">0</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="home_stat_con mx-auto d-block">
+                            <div class="background_effect"></div>
+                            <div class="label">Rank</div>
+                            <div class="main small" id="player_rang"></div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="home_stat_con mx-auto d-block">
+                            <div class="background_effect"></div>
+                            <div class="label">Salary</div>
+                            <div class="main" id="salary">100$</div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="welcome_text mt-3">Welcome,<br> <span class="hand_written">Name</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="medic_panel" id="medic_panel">
+        <img class="main_body" src="assets/main_body.png">
+        <img class="body_part" id="right_arm" src="assets/right_arm.png">
+        <img class="body_part" id="left_arm" src="assets/left_arm.png">
+        <img class="body_part" id="head" src="assets/head.png">
+        <img class="body_part" id="right_leg" src="assets/right_leg.png">
+        <img class="body_part" id="left_leg" src="assets/left_leg.png">
+        <img class="body_part" id="body" src="assets/body.png">
+
+        <div id="right_arm_box"></div>
+        <div id="left_arm_box"></div>
+        <div id="right_leg_box"></div>
+        <div id="left_leg_box"></div>
+        <div id="body_box"></div>
+        <div id="head_box"></div>
+
+        <h2 class="label">MEDIC SYSTEM</h2>
+
+        <h3 class="patient">YOU</h3>
+
+        <div class="vertical_con">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="items_container">
+                        <img class="medic_item" id="head_heal">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items_container">
+                        <img class="medic_item" id="body_heal">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items_container">
+                        <img class="medic_item" id="arm_heal">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items_container">
+                        <img class="medic_item" id="leg_heal">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vertical_con" id="second">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="items_container">
+                        <img class="medic_item" id="blood">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="items_container">
+                        <img class="medic_item" id="revive">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status_con">
+            <h2>STATUS</h2>
+            <div class="box">NORMAL</div>
+        </div>
+
+        <div class="bpm_con">
+            <h2>BPM <h class="box">80</h></h2>
+        </div>
+    </div>
+
+    <div class="medic_panel" id="medic_panel_me">
+        <img class="main_body" src="assets/main_body.png">
+        <img class="body_part" id="right_arm2" src="assets/right_arm.png">
+        <img class="body_part" id="left_arm2" src="assets/left_arm.png">
+        <img class="body_part" id="head2" src="assets/head.png">
+        <img class="body_part" id="right_leg2" src="assets/right_leg.png">
+        <img class="body_part" id="left_leg2" src="assets/left_leg.png">
+        <img class="body_part" id="body2" src="assets/body.png">
+
+        <div id="body_box2"></div>
+
+        <h2 class="label">MEDIC SYSTEM</h2>
+
+        <h3 class="patient">YOU</h3>
+
+        <div class="vertical_con">
+            <div class="items_container">
+                <img class="medic_item" id="blood_me">
+            </div>
+        </div>
+
+        <div class="status_con">
+            <h2>STATUS</h2>
+            <div class="box">NORMAL</div>
+        </div>
+
+        <div class="bpm_con">
+            <h2>BPM <h class="box">80</h></h2>
+        </div>
+    </div>
+
+    <div class="vehicle_livery" id="vehicle_livery">
+        <div class="val_con mx-auto d-block px-3" id="livery"></div>
+        <h5>You can change the livery with the ⬅️ and ➡️</h5>
+    </div>
+
+    <div class="death_screen">
+        <div class="bg"></div>
+        <h2 class="die">YOU WILL DIE</h2>
+        <h2 class="remained">REMAINED TIME</h2>
+        <div class="time_con">
+            <h2 class="time">00:00</h2>
+            <div class="time_line"></div>
+        </div>
+        <h2 class="info" id="d_info">PRESS <h class="hbtn_press px-2" id="hbtn_press">SPACE</h> TO GET HELP</h2>
+        <h2 class="info" id="d_info2">PRESS <h class="hbtn_press px-2" id="hbtn_press2">SPACE</h> TO GET REVIVED</h2>
+    </div>
+
+    <div class="basic_container" id="create_citizen_call">
+        <div class="label">Medic Call
+            <div class="background_effect"></div>
+        </div>
+        <div class="input-group mt-3 px-3 h-50">
+            <textarea class="form-control" id="in_citizen_call_reason" placeholder="Type your problem..." oninput="RefreshCreateCallBTN()"></textarea>
+        </div>
+        <button class="submenu_btn px-3 mt-3 mx-auto d-block" id="create_call_btn" disabled onclick="CreateCall()">Create</button>
+    </div>
+
+    <div class="modal fade" id="call_modal">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+          <div class="modal-content pb-2" style="background: var(--secondary_color); border-radius: 13px; color: var(--text_color);">
+            <div class="modal-body">
+                <div class="modal_header mx-auto d-block">
+                    <div class="background_effect"></div>
+                    <div class="row">
+                        <div class="col"><button class="details_btn m-1 float-start px-3" data-bs-dismiss="modal"><i class="fa-solid fa-chevron-left"></i> Back</button></div>
+                        <div class="col-5"><h2 class="modal-title mx-auto d-block text-center" id="title_text">Medic call</h2></div>
+                        <div class="col"><button class="details_btn px-3 m-1 float-end" onclick="SendPinOnMap()"><i class="fa-solid fa-location-dot"></i> Pin</button></div>
+                    </div>
+                </div>
+                
+                <div class="call_actions_container">
+                    <div class="input-group mt-3 call_reason_con">
+                        <textarea class="form-control" id="in_call_reason" oninput="RefreshCloseCallBTN()" placeholder="Reason to close"></textarea>
+                    </div>
+                    <button class="submenu_btn px-3 my-3 mx-auto d-block" id="close_call" onclick="CloseCall()" disabled>Close</button>
+                </div>
+
+                <h3 class="text-white text-center mt-3" id="involved">Medicers involved</h3>
+                <div class="involved_container mx-auto d-block">
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js">
+</script>
+<script src="script.js"></script>
+</html>
